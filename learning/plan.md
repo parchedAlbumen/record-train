@@ -19,11 +19,11 @@
 
 - [x] Initialize a git repository and make your first commit
 
-- [ ] Create a GitHub repo and push your code there
+- [x] Create a GitHub repo and push your code there
 
-- [ ] Scaffold a React + TypeScript app with Vite
+- [x] Scaffold a React + TypeScript app with Vite
 
-- [ ] Run the dev server and see the default page in your browser
+- [x] Run the dev server and see the default page in your browser
 
 - [ ] Edit the page to say something you wrote, and see it update live
 

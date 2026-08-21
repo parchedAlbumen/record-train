@@ -74,11 +74,11 @@
 
 ## github
 
-- status: seed
+- status: practicing
 - depends-on: git-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-21
+- last-reviewed: 2026-08-21
+- evidence: Correctly predicted push would send nothing without a commit first; connected `--set-upstream` to "link local branch to remote branch" after a nudge, and confirmed the single push command both pushed and set the link.
 
 ## gitignore
 
@@ -90,19 +90,19 @@
 
 ## node-and-npm
 
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-21
+- last-reviewed: 2026-08-21
+- evidence: Correctly explained that deleting `node_modules/` would break `npm run dev` and that `npm install` rebuilds it from `package.json`/`package-lock.json`.
 
 ## vite
 
-- status: seed
+- status: practicing
 - depends-on: node-and-npm
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-21
+- last-reviewed: 2026-08-21
+- evidence: Ran the scaffold and dev server themselves, correctly predicted a localhost page would open, and chose "ignore files and continue" correctly reasoning it would preserve `.git/` and `learning/`.
 
 ## react-components
 
