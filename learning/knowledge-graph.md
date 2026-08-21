@@ -58,19 +58,19 @@
 
 ## git-basics
 
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-21
+- last-reviewed: 2026-08-21
+- evidence: Correctly predicted `git status` would show everything as untracked right after `git init`; correctly reasoned that deleting `.git/` would leave working files untouched.
 
 ## commits
 
-- status: seed
+- status: practicing
 - depends-on: git-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-21
+- last-reviewed: 2026-08-21
+- evidence: Ran `git add .` and `git commit` themselves, correctly predicted the commit confirmation output, and distinguished staged-but-uncommitted from committed.
 
 ## github
 
@@ -82,11 +82,11 @@
 
 ## gitignore
 
-- status: seed
+- status: practicing
 - depends-on: git-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-21
+- last-reviewed: 2026-08-21
+- evidence: Read `git status` output correctly to identify `.claude/settings.local.json` as excluded; after a nudge, reasoned that it's excluded for being machine-specific, not just private.
 
 ## node-and-npm
 

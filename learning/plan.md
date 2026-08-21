@@ -17,7 +17,7 @@
 
 **Deliverable:** a git repo on GitHub, and a React page running locally that says something the learner wrote. **Concepts:** git-basics, commits, github, gitignore, node-and-npm, vite, react-components, jsx, typescript-basics
 
-- [ ] Initialize a git repository and make your first commit
+- [x] Initialize a git repository and make your first commit
 
 - [ ] Create a GitHub repo and push your code there
 
