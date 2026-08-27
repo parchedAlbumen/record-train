@@ -66,19 +66,19 @@
 
 ## commits
 
-- status: practicing
+- status: understood
 - depends-on: git-basics
 - introduced: 2026-08-21
-- last-reviewed: 2026-08-21
-- evidence: Ran `git add .` and `git commit` themselves, correctly predicted the commit confirmation output, and distinguished staged-but-uncommitted from committed.
+- last-reviewed: 2026-08-27
+- evidence: Ran `git add .` and `git commit` themselves, correctly predicted the commit confirmation output, and distinguished staged-but-uncommitted from committed. 2026-08-27: after 6 days, recalled unprompted that a commit only saves locally, and predicted "ahead by 1 commit" correctly.
 
 ## github
 
-- status: practicing
+- status: understood
 - depends-on: git-basics
 - introduced: 2026-08-21
-- last-reviewed: 2026-08-21
-- evidence: Correctly predicted push would send nothing without a commit first; connected `--set-upstream` to "link local branch to remote branch" after a nudge, and confirmed the single push command both pushed and set the link.
+- last-reviewed: 2026-08-27
+- evidence: Correctly predicted push would send nothing without a commit first; connected `--set-upstream` to "link local branch to remote branch" after a nudge, and confirmed the single push command both pushed and set the link. 2026-08-27: named push (not commit) as the step that reaches GitHub, and predicted "up to date with origin/main" after pushing.
 
 ## gitignore
 
@@ -162,11 +162,11 @@
 
 ## virtual-environments
 
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Built and activated a venv in `backend/`; recognised the `(.venv)` prompt prefix as the "it worked" signal; on a fresh-clone prediction, said each machine must recreate its own `.venv` and reinstall from the requirements list, and named `requirements.txt` before it existed. 2026-08-27: predicted `pip install` lands packages inside `.venv`; reasoned `requirements.txt` would have more than 2 lines because FastAPI's dependencies come too; described the clone-side step as reinstalling from that file.
 
 ## fastapi-basics
 

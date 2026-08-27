@@ -13,7 +13,7 @@
 
 ## Sections
 
-### 1. Foundations and the first page \[ \] not started
+### 1. Foundations and the first page \[x\] done
 
 **Deliverable:** a git repo on GitHub, and a React page running locally that says something the learner wrote. **Concepts:** git-basics, commits, github, gitignore, node-and-npm, vite, react-components, jsx, typescript-basics
 
@@ -27,11 +27,23 @@
 
 - [x] Edit the page to say something you wrote, and see it update live
 
-- [ ] Commit and push the frontend scaffold
+- [x] Commit and push the frontend scaffold
 
 ### 2. A backend that answers \[ \] not started
 
 **Deliverable:** a FastAPI server running locally, with an endpoint that can be hit from its auto-generated docs page and returns fake run data. **Concepts:** http-requests-and-responses, endpoints-and-routes, json, virtual-environments, fastapi-basics, auto-docs-page
+
+- [x] Make a `backend/` folder with its own Python virtual environment, and activate it
+
+- [x] Install FastAPI and uvicorn into the venv, and record them in `requirements.txt`
+
+- [ ] Write a minimal FastAPI app with one root endpoint, run it, and see its JSON in the browser
+
+- [ ] Open the auto-generated `/docs` page and call the endpoint from there
+
+- [ ] Add a `/runs` endpoint that returns a hardcoded list of fake runs, and test it from `/docs`
+
+- [ ] Commit the backend
 
 ### 3. The two halves talk \[ \] not started
 
