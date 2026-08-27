@@ -25,7 +25,7 @@
 
 - [x] Run the dev server and see the default page in your browser
 
-- [ ] Edit the page to say something you wrote, and see it update live
+- [x] Edit the page to say something you wrote, and see it update live
 
 - [ ] Commit and push the frontend scaffold
 

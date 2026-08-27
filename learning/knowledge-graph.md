@@ -106,19 +106,27 @@
 
 ## react-components
 
-- status: seed
+- status: introduced
 - depends-on: vite
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Had `App` explained as a function that returns markup; no independent demonstration yet.
 
 ## jsx
 
-- status: seed
+- status: practicing
 - depends-on: react-components
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Edited the `<h1>` in App.tsx and saw it update live; correctly predicted `{2 + 2}` renders `4` because the braces evaluate JavaScript.
+
+## hmr
+
+- status: introduced
+- depends-on: vite
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Observed the page repaint without a full reload right after saving an edit to App.tsx.
 
 ## typescript-basics
 
