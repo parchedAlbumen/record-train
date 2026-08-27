@@ -37,7 +37,7 @@
 
 - [x] Install FastAPI and uvicorn into the venv, and record them in `requirements.txt`
 
-- [ ] Write a minimal FastAPI app with one root endpoint, run it, and see its JSON in the browser
+- [x] Write a minimal FastAPI app with one root endpoint, run it, and see its JSON in the browser
 
 - [ ] Open the auto-generated `/docs` page and call the endpoint from there
 
@@ -55,7 +55,9 @@
 
 ### 5. Strava \[ \] not started
 
-**Deliverable:** click "Connect Strava," approve it, and real runs appear in the list. **Concepts:** what-is-an-api, api-keys-and-secrets, oauth-flow, access-and-refresh-tokens, calling-an-external-api, storing-tokens-safely, syncing-and-deduplication
+**Deliverable:** click "Connect Strava," approve it, and real runs appear in the list. **Concepts:** what-is-an-api, api-keys-and-secrets, oauth-flow, access-and-refresh-tokens, calling-an-external-api, storing-tokens-safely, syncing-and-deduplication, git-branches, pull-requests
+
+_Workflow note: this section runs on a `strava` feature branch off `main`, pushed to GitHub, and merged back with a pull request — the biggest, most breakable part of the project is the right place to learn branching for real._
 
 ### 6. The features you came for \[ \] not started
 

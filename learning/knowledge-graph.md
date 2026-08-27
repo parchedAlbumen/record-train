@@ -138,27 +138,43 @@
 
 ## http-requests-and-responses
 
-- status: seed
+- status: introduced
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Worked with the request-in / response-out framing while building the endpoint (method + path matched to a handler, return value sent back); no dedicated check yet.
+
+## decorators
+
+- status: practicing
+- depends-on: none
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: After the `@x` = `f = x(f)` rewrite, correctly said the decorator registers the function rather than calling it, passed the "how many times has list_runs run at startup" check, and predicted the `NameError` from renaming `app` while leaving `@app.get` in place.
+
+## reading-stack-traces
+
+- status: practicing
+- depends-on: none
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: On a real uvicorn traceback, located `main.py:10` as the failing line among the library frames and tied the `NameError` message to the renamed variable.
 
 ## endpoints-and-routes
 
-- status: seed
+- status: practicing
 - depends-on: http-requests-and-responses
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Given a two-route example, said `list_runs` runs 0 times at startup and only when a request hits `/runs` — separated route registration from per-request dispatch.
 
 ## json
 
-- status: seed
+- status: practicing
 - depends-on: http-requests-and-responses
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Filled the endpoint's return dict; predicted the browser would show exactly `message: "hello everyone!"` and connected it to the Python-dict → JSON conversion.
 
 ## virtual-environments
 
@@ -170,11 +186,11 @@
 
 ## fastapi-basics
 
-- status: seed
+- status: practicing
 - depends-on: virtual-environments, endpoints-and-routes
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-27
+- last-reviewed: 2026-08-27
+- evidence: Filled in the handler's return value, started the server with `uvicorn main:app --reload`, predicted the JSON page correctly, and predicted/diagnosed the crash when `app` was renamed.
 
 ## auto-docs-page
 
@@ -455,6 +471,22 @@
 - introduced: —
 - last-reviewed: —
 - evidence: —
+
+## git-branches
+
+- status: seed
+- depends-on: commits
+- introduced: —
+- last-reviewed: —
+- evidence: — (parked 2026-08-27 at the learner's request; comes due in section 5, done on a `strava` branch)
+
+## pull-requests
+
+- status: seed
+- depends-on: git-branches, github
+- introduced: —
+- last-reviewed: —
+- evidence: — (parked 2026-08-27; comes due in section 5 when the `strava` branch merges back)
 
 ## reviewing-a-diff
 
