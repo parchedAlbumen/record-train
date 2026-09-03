@@ -1,11 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+type Run = {
+  id: number
+  date: string
+  distance_km: number
+  duration_min: number
+}
+
 function App() {
   const [count, setCount] = useState(0)
+  const [runs, setRuns] = useState<Run[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadRuns() {
+      const response = await fetch("http://localhost:8000/runs")
+      const data = await response.json()
+      setRuns(data)
+      console.log("runs from server:", data)
+    }
+    loadRuns()
+  }, [])
 
   return (
     <>

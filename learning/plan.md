@@ -39,15 +39,27 @@
 
 - [x] Write a minimal FastAPI app with one root endpoint, run it, and see its JSON in the browser
 
-- [ ] Open the auto-generated `/docs` page and call the endpoint from there
+- [x] Open the auto-generated `/docs` page and call the endpoint from there
 
-- [ ] Add a `/runs` endpoint that returns a hardcoded list of fake runs, and test it from `/docs`
+- [x] Add a `/runs` endpoint that returns a hardcoded list of fake runs, and test it from `/docs`
 
-- [ ] Commit the backend
+- [x] Commit the backend
 
 ### 3. The two halves talk \[ \] not started
 
 **Deliverable:** the React page displaying that fake run data, fetched live from the backend. **Concepts:** fetch, async-await, cors, react-state, useeffect, loading-and-error-states
+
+- [x] Add CORS middleware to the FastAPI backend so the browser is allowed to call it from a different origin
+
+- [x] Add React state for the list of runs and a loading flag
+
+- [x] Write a `useEffect` that fetches `/runs` on page load and stores the result in state
+
+- [ ] Render the fetched runs as a simple list on the page
+
+- [ ] Add an error state for when the fetch fails, and display it
+
+- [ ] Commit the frontend fetch work
 
 ### 4. Remembering things \[ \] not started
 

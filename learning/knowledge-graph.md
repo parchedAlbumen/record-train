@@ -61,8 +61,8 @@
 - status: practicing
 - depends-on: none
 - introduced: 2026-08-21
-- last-reviewed: 2026-08-21
-- evidence: Correctly predicted `git status` would show everything as untracked right after `git init`; correctly reasoned that deleting `.git/` would leave working files untouched.
+- last-reviewed: 2026-09-01
+- evidence: Correctly predicted `git status` would show everything as untracked right after `git init`; correctly reasoned that deleting `.git/` would leave working files untouched. 2026-09-01: correctly reasoned that an uncommitted-but-committed-locally change is lost forever if the machine dies before a push.
 
 ## commits
 
@@ -85,8 +85,8 @@
 - status: practicing
 - depends-on: git-basics
 - introduced: 2026-08-21
-- last-reviewed: 2026-08-21
-- evidence: Read `git status` output correctly to identify `.claude/settings.local.json` as excluded; after a nudge, reasoned that it's excluded for being machine-specific, not just private.
+- last-reviewed: 2026-09-01
+- evidence: Read `git status` output correctly to identify `.claude/settings.local.json` as excluded; after a nudge, reasoned that it's excluded for being machine-specific, not just private. 2026-09-01: correctly reasoned that a future `.env` file would not be auto-ignored by the current patterns and would need to be added explicitly.
 
 ## node-and-npm
 
@@ -94,15 +94,15 @@
 - depends-on: none
 - introduced: 2026-08-21
 - last-reviewed: 2026-08-21
-- evidence: Correctly explained that deleting `node_modules/` would break `npm run dev` and that `npm install` rebuilds it from `package.json`/`package-lock.json`.
+- evidence: Correctly explained that deleting `node_modules/` would break `npm run dev` and that `npm install` rebuilds it from `package.json`/`package-lock.json`. 2026-09-02: on review, recalled that the frontend breaks and that it's the React setup dependencies, but had lost the recovery command (`npm install`); refreshed.
 
 ## vite
 
 - status: practicing
 - depends-on: node-and-npm
 - introduced: 2026-08-21
-- last-reviewed: 2026-08-21
-- evidence: Ran the scaffold and dev server themselves, correctly predicted a localhost page would open, and chose "ignore files and continue" correctly reasoning it would preserve `.git/` and `learning/`.
+- last-reviewed: 2026-09-01
+- evidence: Ran the scaffold and dev server themselves, correctly predicted a localhost page would open, and chose "ignore files and continue" correctly reasoning it would preserve `.git/` and `learning/`. 2026-09-01: correctly reasoned that Vite's dev server and FastAPI on different ports count as different origins to the browser.
 
 ## react-components
 
@@ -130,11 +130,11 @@
 
 ## typescript-basics
 
-- status: seed
+- status: introduced
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-01
+- last-reviewed: 2026-09-01
+- evidence: Had the `Run` type explained (a type describes an object's required shape/fields); no independent demonstration yet.
 
 ## http-requests-and-responses
 
@@ -165,16 +165,16 @@
 - status: practicing
 - depends-on: http-requests-and-responses
 - introduced: 2026-08-27
-- last-reviewed: 2026-08-27
-- evidence: Given a two-route example, said `list_runs` runs 0 times at startup and only when a request hits `/runs` — separated route registration from per-request dispatch.
+- last-reviewed: 2026-09-01
+- evidence: Given a two-route example, said `list_runs` runs 0 times at startup and only when a request hits `/runs` — separated route registration from per-request dispatch. 2026-09-01: wrote a working `/run` route from scratch unprompted, then reshaped it into `/runs` returning a list of dicts matching the requested shape.
 
 ## json
 
 - status: practicing
 - depends-on: http-requests-and-responses
 - introduced: 2026-08-27
-- last-reviewed: 2026-08-27
-- evidence: Filled the endpoint's return dict; predicted the browser would show exactly `message: "hello everyone!"` and connected it to the Python-dict → JSON conversion.
+- last-reviewed: 2026-09-01
+- evidence: Filled the endpoint's return dict; predicted the browser would show exactly `message: "hello everyone!"` and connected it to the Python-dict → JSON conversion. 2026-09-01: correctly filled a second dict into a list of dicts, matching key shape, which came back as a proper JSON array.
 
 ## virtual-environments
 
@@ -194,51 +194,67 @@
 
 ## auto-docs-page
 
-- status: seed
+- status: practicing
 - depends-on: fastapi-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-01
+- last-reviewed: 2026-09-01
+- evidence: Called `GET /` and `GET /runs` live from `/docs` via "Try it out"; correctly predicted that saving a new route with `--reload` running makes it appear on `/docs` automatically, no extra step, then confirmed it by writing `/run` and seeing it show up on refresh.
 
 ## fetch
 
-- status: seed
+- status: practicing
 - depends-on: http-requests-and-responses, react-components
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-02
+- last-reviewed: 2026-09-02
+- evidence: Wrote the `fetch(...)` call and both `await` lines themselves inside an async helper in `useEffect`; predicted a `runs` request at status 200 returning the array and confirmed it in the browser Network tab.
 
 ## async-await
 
-- status: seed
+- status: practicing
 - depends-on: fetch
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-02
+- last-reviewed: 2026-09-02
+- evidence: Explained that `await` pauses until the promise resolves and that without it `response` would be a promise with no `.json()` method; after a wrong first guess (that `.then()` "implicitly refers to" async/await), framed the two as separate syntaxes for consuming the same promise.
 
 ## cors
 
-- status: seed
+- status: practicing
 - depends-on: fetch
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-01
+- last-reviewed: 2026-09-01
+- evidence: Added `CORSMiddleware` with `allow_origins`; after a wrong first guess (bare port number, then a URL with a trailing slash), reasoned through string-equality themselves and landed on the exact origin string with no path; correctly predicted the `access-control-allow-origin` response header would appear, confirmed via curl.
 
 ## react-state
 
-- status: seed
+- status: practicing
 - depends-on: react-components
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-01
+- last-reviewed: 2026-09-02
+- evidence: Set `runs` to `[]` correctly on first try. Initially answered `loading`'s starting value backwards (reasoning "hasn't started = false"); after working through the "do we have data yet" vs "are we still waiting" distinction across several exchanges, correctly reasoned to `true` and named the underlying trap (answering an adjacent question, not the one the variable name asks) in their own words. 2026-09-02: distinguished the updater-function form `setCount((c) => c + 1)` (new value built from old) from the plain-value form `setRuns(data)` (value replaced wholesale) and picked the plain form correctly for the fetch.
 
 ## useeffect
 
-- status: seed
+- status: practicing
 - depends-on: react-state
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-02
+- last-reviewed: 2026-09-02
+- evidence: Predicted correctly that omitting the dependency array makes the effect run on every render, and reasoned it would loop given a `setRuns` inside; predicted the effect runs once on load and not when the count button is clicked; explained that `useEffect` sits above `return` because JSX is markup and hooks belong in the component's setup.
+
+## callbacks
+
+- status: practicing
+- depends-on: none
+- introduced: 2026-09-02
+- last-reviewed: 2026-09-02
+- evidence: After a long stretch of genuine confusion, articulated in own words that a function passed into another function has its parameters filled positionally by the caller; concluded that a state updater's first parameter is the current state value purely because React is built to call it that way, not through any language mechanism. Linked to [[arrow-function-syntax]] and [[react-state]].
+
+## arrow-function-syntax
+
+- status: practicing
+- depends-on: none
+- introduced: 2026-09-02
+- last-reviewed: 2026-09-02
+- evidence: Named the left of `=>` as parameters and the right as the returned result; understood that a braced body needs an explicit `return` while a bare expression is returned implicitly.
 
 ## loading-and-error-states
 
