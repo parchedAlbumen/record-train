@@ -12,7 +12,7 @@
 - package.json — known (2026-08-27) — the project's manifest: its name, its npm scripts (`dev`, `build`, `lint`), and its list of dependencies → \[\[node-and-npm\]\]
 - package-lock.json — known (2026-08-21) — the exact installed version of every dependency, including sub-dependencies; auto-generated, never hand-edited → \[\[node-and-npm\]\]
 - node_modules/ — known (2026-08-21) — the actual downloaded code for every dependency; generated, gitignored, rebuildable anytime with `npm install` → \[\[node-and-npm\]\]
-- src/ — known (2026-09-02) — where the actual React app code lives; `App.tsx` is the main component (holds your heading text, and now a `useEffect` that fetches `/runs` from the backend on load and stores it in state), `main.tsx` boots it → \[\[react-components\]\] \[\[jsx\]\] \[\[useeffect\]\] \[\[fetch\]\]
+- src/ — known (2026-09-04) — where the actual React app code lives; `App.tsx` is the main component (holds your heading text, a `useEffect` that fetches `/runs` from the backend on load and stores it in state, a `runs` section that renders that list with `.map()`, and now a `try`/`catch` around the fetch with an `error` state shown conditionally when it fails), `main.tsx` boots it → \[\[react-components\]\] \[\[jsx\]\] \[\[useeffect\]\] \[\[fetch\]\] \[\[list-rendering\]\] \[\[loading-and-error-states\]\] \[\[try-catch\]\] \[\[short-circuit-conditional-rendering\]\]
 - index.html — known (2026-08-21) — the one HTML page the whole React app gets injected into → \[\[vite\]\]
 - README.md — known (2026-08-21) — replaced Vite's boilerplate with a real one-line description of the project
 - vite.config.ts — parked (section 1) — Vite's own configuration; not touched yet → \[\[vite\]\]

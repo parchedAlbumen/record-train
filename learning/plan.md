@@ -55,9 +55,9 @@
 
 - [x] Write a `useEffect` that fetches `/runs` on page load and stores the result in state
 
-- [ ] Render the fetched runs as a simple list on the page
+- [x] Render the fetched runs as a simple list on the page
 
-- [ ] Add an error state for when the fetch fails, and display it
+- [x] Add an error state for when the fetch fails, and display it
 
 - [ ] Commit the frontend fetch work
 
@@ -75,9 +75,13 @@ _Workflow note: this section runs on a `strava` feature branch off `main`, pushe
 
 **Deliverable:** the pace chart drawn from real runs, and a working form for logging lifting sets. **Concepts:** recharts, filtering-data, react-forms, post-requests, input-validation, computing-derived-values
 
+_Parked (optional, added 2026-09-02): add in-memory response caching to the chart endpoint — a dict of `key → (result, timestamp)` with a TTL check. Learn the expiry-and-invalidation logic; Redis is deferred until there's more than one backend process to share the cache._
+
 ### 7. Live on the internet \[ \] not started
 
 **Deliverable:** the URL open on a phone at the gym, laptop closed. **Concepts:** hosted-postgres, deploying-a-backend, deploying-a-static-frontend, production-environment-variables, production-vs-development-config, reading-free-tier-limits
+
+_Parked (optional, added 2026-09-02): add a basic in-memory rate limiter to the backend's own endpoints — a dict of `client → (tokens_left, last_refill)` implementing the token-bucket algorithm. Learn the refill math; the distributed (Redis) version waits until there's a real multi-server reason for it._
 
 ## Shape of the journey
 

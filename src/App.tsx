@@ -15,13 +15,17 @@ function App() {
   const [count, setCount] = useState(0)
   const [runs, setRuns] = useState<Run[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null) //we want to display that error existed, instead of handling it silently
 
   useEffect(() => {
     async function loadRuns() {
-      const response = await fetch("http://localhost:8000/runs")
-      const data = await response.json()
-      setRuns(data)
-      console.log("runs from server:", data)
+      try {
+        const response = await fetch("http://localhost:8000/runs")
+        const data = await response.json()
+        setRuns(data)
+      } catch (err) {
+        setError("failed to load runs!")
+      }
     }
     loadRuns()
   }, [])
@@ -47,6 +51,20 @@ function App() {
         >
           Count is {count}
         </button>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="runs">
+        <h2>Your runs</h2>
+        {error && <p>{error}</p>}
+        <ul>
+          {runs.map((run) => (
+            <li key={run.id}>
+                {run.date} - {run.distance_km}km in {run.duration_min} min
+            </li>
+          ))}
+        </ul>
       </section>
 
       <div className="ticks"></div>

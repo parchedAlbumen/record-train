@@ -66,11 +66,11 @@
 
 ## commits
 
-- status: understood
+- status: practicing
 - depends-on: git-basics
 - introduced: 2026-08-21
-- last-reviewed: 2026-08-27
-- evidence: Ran `git add .` and `git commit` themselves, correctly predicted the commit confirmation output, and distinguished staged-but-uncommitted from committed. 2026-08-27: after 6 days, recalled unprompted that a commit only saves locally, and predicted "ahead by 1 commit" correctly.
+- last-reviewed: 2026-09-04
+- evidence: Ran `git add .` and `git commit` themselves, correctly predicted the commit confirmation output, and distinguished staged-but-uncommitted from committed. 2026-08-27: after 6 days, recalled unprompted that a commit only saves locally, and predicted "ahead by 1 commit" correctly. 2026-09-04: on review, first guessed an unpushed commit would be recoverable if the machine died; after working through the "no other copy exists" reasoning, correctly restated that a commit living only in local `.git/` is unrecoverable if that machine is destroyed before a push. Downgraded from understood — needs another clean pass before it's solid again.
 
 ## github
 
@@ -114,11 +114,11 @@
 
 ## jsx
 
-- status: practicing
+- status: understood
 - depends-on: react-components
 - introduced: 2026-08-27
-- last-reviewed: 2026-08-27
-- evidence: Edited the `<h1>` in App.tsx and saw it update live; correctly predicted `{2 + 2}` renders `4` because the braces evaluate JavaScript.
+- last-reviewed: 2026-09-04
+- evidence: Edited the `<h1>` in App.tsx and saw it update live; correctly predicted `{2 + 2}` renders `4` because the braces evaluate JavaScript. 2026-09-04: independently reasoned that `date` needed a `run.` prefix since it's a field on the loop variable, not a standalone variable; correctly predicted that quoted text outside curly braces (`" - "`) would render the literal quote characters, not act as a separator; then independently diagnosed and fixed a real syntax error (a stray brace left over from a merged TODO comment) after being shown only the browser's error, with no fix given.
 
 ## hmr
 
@@ -237,8 +237,8 @@
 - status: practicing
 - depends-on: react-state
 - introduced: 2026-09-02
-- last-reviewed: 2026-09-02
-- evidence: Predicted correctly that omitting the dependency array makes the effect run on every render, and reasoned it would loop given a `setRuns` inside; predicted the effect runs once on load and not when the count button is clicked; explained that `useEffect` sits above `return` because JSX is markup and hooks belong in the component's setup.
+- last-reviewed: 2026-09-04
+- evidence: Predicted correctly that omitting the dependency array makes the effect run on every render, and reasoned it would loop given a `setRuns` inside; predicted the effect runs once on load and not when the count button is clicked; explained that `useEffect` sits above `return` because JSX is markup and hooks belong in the component's setup. 2026-09-04: after exploring why the fetch helper can't be passed to `useEffect` directly as an `async` function, correctly restated in own words that `useEffect`'s return slot must be `undefined` or a plain cleanup function, and that `async` functions always return a `Promise` instead, which is the actual source of the restriction (not a general ban on async arrow functions). Also reasoned correctly that moving the helper outside the component entirely would break its access to `setRuns` via closure (asked but not yet confirmed by them running it).
 
 ## callbacks
 
@@ -256,13 +256,37 @@
 - last-reviewed: 2026-09-02
 - evidence: Named the left of `=>` as parameters and the right as the returned result; understood that a braced body needs an explicit `return` while a bare expression is returned implicitly.
 
+## list-rendering
+
+- status: practicing
+- depends-on: jsx, react-state
+- introduced: 2026-09-04
+- last-reviewed: 2026-09-04
+- evidence: Given the `.map()` + `key` skeleton, correctly filled in the `<li>` content using `run.date`/`run.distance_km`/`run.duration_min`; reasoned through why each field needs the `run.` prefix and why quoted separator text outside braces would render literally.
+
 ## loading-and-error-states
 
-- status: seed
+- status: practicing
 - depends-on: react-state, fetch
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-09-04
+- last-reviewed: 2026-09-04
+- evidence: Correctly predicted that a failed fetch with no error handling would fail silently (empty list, no visible sign anything broke). After the fix, correctly predicted the error message would appear when the backend was down, and that runs would reappear once it was restarted; both confirmed live in the browser.
+
+## try-catch
+
+- status: practicing
+- depends-on: none
+- introduced: 2026-09-04
+- last-reviewed: 2026-09-04
+- evidence: Recognized `try`/`catch` from prior exposure in other languages. Reasoned unprompted that `try`/`catch` (catching the error) and state (getting it into the UI) are two separate jobs — catching alone doesn't paint anything on screen.
+
+## short-circuit-conditional-rendering
+
+- status: practicing
+- depends-on: arrow-function-syntax
+- introduced: 2026-09-04
+- last-reviewed: 2026-09-04
+- evidence: Correctly reasoned that `a && b` stops immediately without evaluating `b` when `a` is falsy, and evaluates/returns `b` when `a` is truthy. Initially said the falsy branch becomes literal `false`; corrected after a nudge to see `&&` returns the original value (`null`), not a converted boolean.
 
 ## postgres-setup
 
